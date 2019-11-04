@@ -1,3 +1,4 @@
+const Chalk = require('chalk')
 module.exports = class Meetup {
     constructor(name) {
       this.name = name
@@ -7,3 +8,4 @@ module.exports = class Meetup {
       this.attendees.forEach(printName)
     }
   }
+
