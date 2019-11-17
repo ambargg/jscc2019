@@ -1,26 +1,39 @@
-const Person = require('./person') 
-const Meetup = require('./meetup')
-const Chalk = require('chalk')
+// 2 classes & 3 interactions
+
+const Customer = require('./customer')
+const CoffeeShop = require('./coffeeshop')
+const Coffee = require('./coffee')
+const Async = require('async')
 const Database = require('./database')
 
-  printName = person => console.log(person.name)
+const simon = new Customer('Simon')
+const gabrielle = new Customer('Gabi')
+let barn = new CoffeeShop('The Barn')
 
-const mert = new Person('Mert', 34)
-const armagan = new Person('Armagan', 35)
+let capuccino = new Coffee ('Capuccino')
+let flatwhite = new Coffee ('Flat White')
+let latte = new Coffee ('Latte')
+let cortado = new Coffee ('Cortado')
 
-console.log(Chalk.blue.bgRed.bold('Hello World'))
-printName = person => console.log(Chalk.bgGreen(person.name))
+simon.visit(barn)
+simon.makeOrder(capuccino)
+gabrielle.visit(barn)
 
-mert.greet(armagan)
+barn.printCustomerName()
+barn.changeMilk(capuccino)
+barn.changeMilk(flatwhite)
+barn.changeMilk(latte)
+barn.changeMilk(cortado)
 
-const wtmb = new Meetup('WTM Berlin')
-armagan.attend(wtmb)
-mert.attend(wtmb)
+barn.printMenuItems()
 
-wtmb.printAttendeeNames()
+Database.save('coffeeshop.json', barn)
+Database.save('customer.json', simon)
+Database.save('coffee.json', flatwhite)
 
-Database.save('meetup.json', wtmb)
-Database.save('person.json', mert)
-
-const loadedFile = Database.load('meetup.json')
+const loadedFile = Database.load('coffeeshop.json')
 console.log(loadedFile.name)
+
+// const Database = require('./database)
+// console.log(Database.load('coffeeshop.json').name)
+// console.log(loadedFile.name)

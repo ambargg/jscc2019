@@ -1,14 +1,14 @@
 {
-  "name": "w2",
+  "name": "w1",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ambar Galan",
-  "license": "MIT",
-  "description": "",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "chalk": "^2.4.2"
+    "async": "^3.1.0"
   }
 }
